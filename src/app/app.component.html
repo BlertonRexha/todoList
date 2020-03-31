@@ -1,0 +1,27 @@
+<div class="container">
+  <app-details [itemDetails]="itemDetails"></app-details>
+  <div class="form-group">
+    <label for="name">Email address</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="hero.name" aria-describedby="FirstName" placeholder="Enter Name">
+    <small id="NameHelp" class="form-text text-muted">We'll never share your Name with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="hero.desc" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="additem()">Submit</button>
+  <button (click)="getfromserv()" class="btn btn-primary" style="margin: 0 5px">Get from service</button>
+  <div class="list-view"> To do list
+    <ul class="list-group">
+      <li *ngFor="let item of heroes" id="listanimation" class="list-group-item list-group-item-action pointer between animated fadeInDown list-animation">
+        <span>{{item.id}} - {{item.name}}</span>
+        <span>
+          <span (click)="viewDetails(item)" name="viewDetails" data-toggle="modal" data-target="#exampleModal" class="btn"><i class="fa fa-info" aria-hidden="true"></i></span>
+        <span class="btn" (click)="editDetails(item)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+        <span class="btn " id="removeItem" (click)="removeItem(item)"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
